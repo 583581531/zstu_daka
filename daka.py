@@ -59,12 +59,12 @@ driver = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=chrome_options
 try:
     driver.get("http://stu.zstu.edu.cn/webroot/decision/login")
     slp()
-    driver.maximize_window()
+    #driver.maximize_window()
     emailtx('1')
     # 输入用户名和密码
-    driver.find_element_by_xpath("//input[@placeholder='用户名']").send_keys(xuehao)
+    driver.find_element_by_xpath("//input[@placeholder='用户名']").send_keys(os.environ['SCUT_USER'])
     emailtx('2')
-    driver.find_element_by_xpath("//input[@placeholder='密码']").send_keys(mima)
+    driver.find_element_by_xpath("//input[@placeholder='密码']").send_keys(os.environ['SCUT_PASSWORD'])
     emailtx('3')
     driver.find_element_by_xpath("//div[contains(@class,'bi-single bi-basic-button cursor-pointer bi-button login-button')]").click()
     slp()

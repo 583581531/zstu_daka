@@ -65,7 +65,7 @@ def login():
     sleep(50)
     emailtx('1')
     # 输入用户名和密码
-    wait = ui.WebDriverWait(driver_item,10)
+    wait = ui.WebDriverWait(driver,10)
     wait.until(lambda driver: driver.find_element_by_xpath("//input[@placeholder='用户名']"))
     driver.find_element_by_xpath("//input[@placeholder='用户名']").send_keys(os.environ['SCUT_USER'])
     emailtx('2')

@@ -38,7 +38,7 @@ jobs:
         
         
     - name: Run daka
-      env:
+      env: 
         SCUT_USER: ${{ secrets.SCUT_USER }}
         SCUT_PASSWORD: ${{ secrets.SCUT_PASSWORD }}
       run: |

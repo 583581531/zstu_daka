@@ -61,7 +61,7 @@ def login():
     #driver = webdriver.Chrome()
     
     driver.get("http://stu.zstu.edu.cn/webroot/decision/login")
-    slp()
+    sleep(50)
     emailtx('1')
     # 输入用户名和密码
     driver.find_element_by_xpath("//input[@placeholder='用户名']").send_keys(os.environ['SCUT_USER'])
@@ -69,25 +69,25 @@ def login():
     driver.find_element_by_xpath("//input[@placeholder='密码']").send_keys(os.environ['SCUT_PASSWORD'])
     emailtx('3')
     driver.find_element_by_xpath("//div[contains(@class,'bi-single bi-basic-button cursor-pointer bi-button login-button')]").click()
-    slp()
+    sleep(50)
     emailtx('2')
     #打开健康申报页面
     driver.find_element_by_xpath("//div[@class='bi-button-tree bi-vertical-layout']/div[3]").click()
     emailtx('3')
     driver.find_element_by_xpath("//div[@class='bi-single bi-basic-button cursor-pointer dec-common-img-icon-text-item dec-frame-platform-list-item-active dec-font-size-14 bi-h-tape-layout']").click()
-    slp()
+    sleep(50)
     emailtx('3')
     #填写
     driver.switch_to.frame("a5f79672-e7ef-4d6c-affc-1ceaa522236e")
     driver.find_element_by_id("D12-0-0").find_element_by_tag_name("span").click()
     driver.find_element_by_id("D13-0-0").find_element_by_tag_name("span").click()
-    slp()
+    sleep(50)
     emailtx('4')
     
     target = driver.find_element_by_id("B30-0-0")
     driver.execute_script("arguments[0].scrollIntoView();", target)
     driver.find_element_by_id("B30-0-0").find_element_by_tag_name("button").click()
-    slp()
+    sleep(50)
     
     emailtx('5')
     print("\n" + t + "疫情防控——师生健康状态采集\n已完成")

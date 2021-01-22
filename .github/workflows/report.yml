@@ -14,11 +14,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v2
+    - name: 'Checkout codes'
+      uses: actions/checkout@v1
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
       with:
-        python-version: 3.8
+        python-version: '3.7'
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -36,11 +37,9 @@ jobs:
               && sudo chmod +x /usr/local/bin/chromedriver \
               && chromedriver --version     
         
-        
     - name: Run daka
       env: 
         SCUT_USER: ${{ secrets.SCUT_USER }}
         SCUT_PASSWORD: ${{ secrets.SCUT_PASSWORD }}
-      run: |
-        python daka.py
+      run:  python daka.py
    

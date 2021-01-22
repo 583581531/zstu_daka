@@ -39,8 +39,8 @@ jobs:
         
     - name: Run daka
       env:
-        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        SCUT_USER: ${{ secrets.SCUT_USER }}
+        SCUT_PASSWORD: ${{ secrets.SCUT_PASSWORD }}
       run: |
         python daka.py
    

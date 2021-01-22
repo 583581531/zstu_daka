@@ -48,16 +48,18 @@ def emailtx(things):
 def slp():
     sleep(random.randint(1,10))
 
-# 模拟浏览器打开网站
-chrome_options = Options()
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--disable-gpu')
-chrome_options.add_argument('--start-maximized')
-driver = webdriver.Chrome(chrome_options=chrome_options)    
-#driver = webdriver.Chrome()
 
-try:
+
+def login():
+    # 模拟浏览器打开网站
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--start-maximized')
+    driver = webdriver.Chrome(chrome_options=chrome_options)    
+    #driver = webdriver.Chrome()
+    
     driver.get("http://stu.zstu.edu.cn/webroot/decision/login")
     slp()
     emailtx('1')
@@ -91,10 +93,7 @@ try:
     print("\n" + t + "疫情防控——师生健康状态采集\n已完成")
     a = "已完成"
     emailtx(a)
-except:
-    a = "打卡失败"
-    print("打卡失败")
-    emailtx(a)
 
+login()
 driver.quit( )
 print("运行结束")

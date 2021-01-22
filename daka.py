@@ -4,6 +4,7 @@ import random
 import time
 from email.mime.text import MIMEText
 from email.header import Header
+from selenium.webdriver.chrome.options import Options
 import smtplib
 
 xuehao = "202030504184"
@@ -47,7 +48,13 @@ def emailtx(things):
 def slp():
     sleep(random.randint(1,5))
 
-driver = webdriver.Chrome()
+# 模拟浏览器打开网站
+chrome_options = Options()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
+browser = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=chrome_options)    
+#driver = webdriver.Chrome()
 
 try:
     driver.get("http://stu.zstu.edu.cn/webroot/decision/login")

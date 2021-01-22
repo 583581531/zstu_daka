@@ -61,7 +61,7 @@ def login():
     driver = webdriver.Chrome(chrome_options=chrome_options)    
     #driver = webdriver.Chrome()
     
-    driver.get("http://stu.zstu.edu.cn/webroot/decision/login")
+    driver.get("http://stu.zstu.edu.cn/webroot/decision/login?origin=c588b978-056a-4410-95fc-8298635a8eb3")
     sleep(50)
     emailtx('1')
     # 输入用户名和密码

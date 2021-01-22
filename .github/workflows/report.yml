@@ -4,9 +4,9 @@
 name: Auto-daka action
 
 on:
-   push
+   push:
    schedule:
-       - cron: 0 22,4,9 * * *
+    - cron: '0 21 * * *'
 
 jobs:
   deploy:

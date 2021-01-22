@@ -46,7 +46,7 @@ def emailtx(things):
     print('邮件发送成功')
 
 def slp():
-    sleep(random.randint(1,5))
+    sleep(random.randint(1,10))
 
 # 模拟浏览器打开网站
 chrome_options = Options()
@@ -59,15 +59,19 @@ driver = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=chrome_options
 try:
     driver.get("http://stu.zstu.edu.cn/webroot/decision/login")
     slp()
+    driver.maximize_window()
     emailtx('1')
     # 输入用户名和密码
     driver.find_element_by_xpath("//input[@placeholder='用户名']").send_keys(xuehao)
+    emailtx('2')
     driver.find_element_by_xpath("//input[@placeholder='密码']").send_keys(mima)
+    emailtx('3')
     driver.find_element_by_xpath("//div[contains(@class,'bi-single bi-basic-button cursor-pointer bi-button login-button')]").click()
     slp()
     emailtx('2')
     #打开健康申报页面
     driver.find_element_by_xpath("//div[@class='bi-button-tree bi-vertical-layout']/div[3]").click()
+    emailtx('3')
     driver.find_element_by_xpath("//div[@class='bi-single bi-basic-button cursor-pointer dec-common-img-icon-text-item dec-frame-platform-list-item-active dec-font-size-14 bi-h-tape-layout']").click()
     slp()
     emailtx('3')

@@ -52,14 +52,14 @@ def slp():
 chrome_options = Options()
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--disable-dev-shm-usage')
-driver = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=chrome_options)    
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--start-maximized')
+driver = webdriver.Chrome(chrome_options=chrome_options)    
 #driver = webdriver.Chrome()
 
 try:
     driver.get("http://stu.zstu.edu.cn/webroot/decision/login")
     slp()
-    #driver.maximize_window()
     emailtx('1')
     # 输入用户名和密码
     driver.find_element_by_xpath("//input[@placeholder='用户名']").send_keys(os.environ['SCUT_USER'])

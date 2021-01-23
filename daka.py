@@ -4,7 +4,7 @@ import random
 import time
 from email.mime.text import MIMEText
 from email.header import Header
-from selenium.webdriver.chrome.options import Options
+from webdriver.chrome.options import Options
 import smtplib
 import selenium.webdriver.support.ui as ui
 
@@ -53,12 +53,16 @@ def slp():
 
 def login():
     # 模拟浏览器打开网站
-    chrome_options = Options()
+    chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--start-maximized')
-    driver = webdriver.Chrome(chrome_options=chrome_options)    
+    chromedriver = "/usr/bin/chromedriver"
+    os.environ["webdriver.chrome.driver"] = chromedriver
+    driver = webdriver.Chrome(chrome_options=chrome_options,executable_path=chromedriver)
+    #driver = webdriver.Chrome(chrome_options=chrome_options)    
     #driver = webdriver.Chrome()
     
     driver.get("http://stu.zstu.edu.cn/webroot/decision/login?origin=c588b978-056a-4410-95fc-8298635a8eb3")

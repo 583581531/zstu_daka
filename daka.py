@@ -4,7 +4,7 @@ import random
 import time
 from email.mime.text import MIMEText
 from email.header import Header
-from webdriver.chrome.options import Options
+from selenium.webdriver.chrome.options import Options
 import smtplib
 import selenium.webdriver.support.ui as ui
 

@@ -11,7 +11,7 @@ chromedriver = "/usr/bin/chromedriver"
 os.environ["webdriver.chrome.driver"] = chromedriver
 driver = webdriver.Chrome(chrome_options=chrome_options,executable_path=chromedriver)
 driver.get("https://www.baidu.com")
-driver.driver.find_element_by_id("kw").send_keys("yes or no ")
-print(driver.driver.find_element_by_id("kw").is_enabled())
+driver.find_element_by_id("kw").send_keys("yes or no ")
+print(driver.find_element_by_id("kw").is_enabled())
 print(driver.title)
 driver.quit()

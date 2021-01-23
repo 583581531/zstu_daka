@@ -2,6 +2,7 @@ from selenium import webdriver
 from time import sleep
 import random
 import time
+import os
 from email.mime.text import MIMEText
 from email.header import Header
 from selenium.webdriver.chrome.options import Options
